@@ -163,7 +163,7 @@ fn autosave_pdf_tex() -> Result<(), notify::Error> {
                                 .file_stem()
                                 .expect("should be able to get file_stem")
                                 .to_string_lossy();
-                            let output = std::process::Command::new("inkscape")
+                            let output = std::process::Command::new("/Applications/Inkscape.app/Contents/MacOS/inkscape")
                                 .arg(path.to_string_lossy().to_string())
                                 .arg("--export-area-page")
                                 .arg("--export-dpi=300")
@@ -249,7 +249,7 @@ fn open_figure(path: &str) -> std::io::Result<std::process::Child> {
         ));
     }
 
-    std::process::Command::new("inkscape")
+    std::process::Command::new("/Applications/Inkscape.app/Contents/MacOS/inkscape")
         .arg(path)
         .stdout(std::process::Stdio::null())
         .stderr(std::process::Stdio::null())
